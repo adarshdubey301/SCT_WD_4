@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨To-Do Master</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+    
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
+    <div class="container">
+        <div class="header">
+            <div class="emoji">🚀</div>
+            <h1>Ultimate To-Do Master</h1>
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.1rem;">Your productivity companion! ✨</p>
+        </div>
+
+        <div class="theme-selector">
+            <div class="theme-btn" style="background: linear-gradient(45deg, #667eea, #764ba2)" onclick="changeTheme('default')"></div>
+            <div class="theme-btn" style="background: linear-gradient(45deg, #ff6b6b, #ffa726)" onclick="changeTheme('sunset')"></div>
+            <div class="theme-btn" style="background: linear-gradient(45deg, #4facfe, #00f2fe)" onclick="changeTheme('ocean')"></div>
+            <div class="theme-btn" style="background: linear-gradient(45deg, #43e97b, #38f9d7)" onclick="changeTheme('forest')"></div>
+            <div class="theme-btn" style="background: linear-gradient(45deg, #fa709a, #fee140)" onclick="changeTheme('candy')"></div>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search your tasks..." oninput="searchTasks()">
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="taskInput" class="input-field" placeholder="What amazing thing will you accomplish today? 🎯" maxlength="300">
+                <button onclick="addTask()" class="add-btn">Add Magic ✨</button>
+            </div>
+            
+            <div class="priority-selector">
+                <button class="priority-btn priority-high" onclick="selectPriority('high')">🔥 High Priority</button>
+                <button class="priority-btn priority-medium selected" onclick="selectPriority('medium')">⚡ Medium Priority</button>
+                <button class="priority-btn priority-low" onclick="selectPriority('low')">🌱 Low Priority</button>
+            </div>
+
+            <div class="category-selector">
+                <button class="category-btn selected" onclick="selectCategory('personal')">👤 Personal</button>
+                <button class="category-btn" onclick="selectCategory('work')">💼 Work</button>
+                <button class="category-btn" onclick="selectCategory('health')">❤️ Health</button>
+                <button class="category-btn" onclick="selectCategory('learning')">📚 Learning</button>
+                <button class="category-btn" onclick="selectCategory('fun')">🎉 Fun</button>
+            </div>
+            
+            <div class="datetime-group">
+                <input type="date" id="taskDate" class="datetime-input">
+                <input type="time" id="taskTime" class="datetime-input">
+                <input type="text" id="taskNotes" class="datetime-input" placeholder="Additional notes..." style="flex: 1; min-width: 200px;">
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <div class="progress-text" id="progressText">Ready to start your productive day! 🌟</div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalTasks">0</div>
+                <div class="stat-label">📋 Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedTasks">0</div>
+                <div class="stat-label">✅ Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="pendingTasks">0</div>
+                <div class="stat-label">⏳ Pending</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayTasks">0</div>
+                <div class="stat-label">📅 Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="productivityScore">0</div>
+                <div class="stat-label">🎯 Score</div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" onclick="filterTasks('all')">🌟 All Tasks</button>
+            <button class="filter-btn" onclick="filterTasks('pending')">⏳ Pending</button>
+            <button class="filter-btn" onclick="filterTasks('completed')">✅ Completed</button>
+            <button class="filter-btn" onclick="filterTasks('today')">📅 Today</button>
+            <button class="filter-btn" onclick="filterTasks('high')">🔥 High Priority</button>
+        </div>
+
+        <div class="todo-list" id="todoList">
+            <div class="empty-state">
+                <div class="emoji">🎯</div>
+                <h3>Ready for greatness!</h3>
+                <p>Add your first task and start your productive journey</p>
+            </div>
+        </div>
+
+        <div class="export-section">
+            <button class="export-btn" onclick="exportTasks('txt')">📄 Export as Text</button>
+            <button class="export-btn" onclick="exportTasks('json')">💾 Export as JSON</button>
+            <button class="export-btn" onclick="clearAllTasks()">🗑️ Clear All</button>
+            <button class="export-btn" onclick="generateMotivation()">💪 Get Motivated</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
