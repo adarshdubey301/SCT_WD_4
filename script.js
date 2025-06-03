@@ -6,7 +6,6 @@ let selectedCategory = 'personal';
 let currentTheme = 'default';
 let searchQuery = '';
 
-// Motivational quotes
 const motivationalQuotes = [
     "You've got this! 💪",
     "Every task completed is a step towards greatness! 🌟",
@@ -18,7 +17,6 @@ const motivationalQuotes = [
     "Keep pushing forward, champion! 🏆"
 ];
 
-// Initialize app
 document.addEventListener('DOMContentLoaded', function() {
     createFloatingParticles();
     loadTasks();
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Auto-save functionality
     setInterval(saveTasks, 30000);
 });
 
@@ -65,8 +62,7 @@ function changeTheme(theme) {
     document.body.style.background = themes[theme];
     document.body.style.backgroundSize = '400% 400%';
     currentTheme = theme;
-    
-    // Update active theme button
+
     document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     
@@ -128,7 +124,6 @@ function addTask() {
         showCelebration('🎉');
     }
 
-    // Clear inputs
     taskInput.value = '';
     taskNotes.value = '';
     taskTime.value = '';
@@ -193,8 +188,7 @@ function editTask(id) {
         document.getElementById('taskDate').value = task.date;
         document.getElementById('taskTime').value = task.time;
         document.getElementById('taskNotes').value = task.notes || '';
-        
-        // Update priority and category selections
+      
         selectedPriority = task.priority;
         selectedCategory = task.category;
         
@@ -382,8 +376,7 @@ function clearAllTasks() {
 function generateMotivation() {
     const quote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
     showCelebration(quote);
-    
-    // Add wiggle animation to a random completed task
+   
     const completedTasks = document.querySelectorAll('.todo-item.completed');
     if (completedTasks.length > 0) {
         const randomTask = completedTasks[Math.floor(Math.random() * completedTasks.length)];
@@ -393,12 +386,11 @@ function generateMotivation() {
 }
 
 function saveTasks() {
-    // Using in-memory storage as per instructions
-    // In a real app: localStorage.setItem('tasks', JSON.stringify(tasks));
+
 }
 
 function loadTasks() {
-    // Demo tasks for initial load
+
     tasks = [
         {
             id: 1,
@@ -436,7 +428,6 @@ function loadTasks() {
     ];
 }
 
-// Helper functions
 function formatDate(dateString) {
     const date = new Date(dateString);
     const today = new Date();
