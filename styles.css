@@ -613,7 +613,6 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Dark mode toggle */
 .dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -634,7 +633,6 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Scrollbar styling */
 .todo-list::-webkit-scrollbar {
     width: 12px;
 }
@@ -653,7 +651,6 @@ body {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .container {
         margin: 10px;
@@ -683,7 +680,6 @@ body {
     }
 }
 
-/* Custom animations */
 @keyframes wiggle {
     0%, 7% { transform: rotateZ(0); }
     15% { transform: rotateZ(-15deg); }
